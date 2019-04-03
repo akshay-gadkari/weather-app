@@ -23,7 +23,7 @@ class App extends Component {
 	e.preventDefault();
 	const api_call = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${mykey}`);
 	const response = await api_call.json();
-	console.log(response.main.temp);
+	console.log(response.weather[0].main);
 	//console.log((9/5) * (response.main.temp - 273.15) + 32);
 	//const farenheit = (9/5) * (response.main.temp - 273) + 32;
 	//console.log(farenheit);
@@ -32,7 +32,8 @@ class App extends Component {
 	    this.setState({
 		farenheit: Math.round((9/5) * (response.main.temp - 273) + 32),
 		city: response.name,
-		description: response.weather[0].description
+		description: response.weather[0].description,
+		weather: response.weather[0].main
 	    });
 	    return <h1>{this.state.farenheit}°F</h1>;
 	}
@@ -45,10 +46,13 @@ class App extends Component {
 
     render() {
 	const farenheit = this.state.farenheit;
+	const weather = this.state.weather;
 	let displaytemp;
+	let displayweather;
 
 	if (farenheit) {
 	    displaytemp = <h1>{this.state.farenheit}°F</h1>;
+	    displayweather = <h1>{this.state.weather}</h1>;
 	}
 	
 	return (
@@ -56,6 +60,7 @@ class App extends Component {
 	      <Titles />
 	      <Form loadWeather={this.getWeather} />
 	      {displaytemp}
+	      {displayweather}
               <h2>{this.state.city}</h2>
 	      <Weather />
 	    </div>
