@@ -21,7 +21,7 @@ class App extends Component {
 	//const country = e.target.elements.country.value;
 	const country = 'United States';
 	e.preventDefault();
-	const api_call = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${mykey}`);
+	const api_call = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${mykey}`);
 	const response = await api_call.json();
 	console.log(response);
 	//console.log((9/5) * (response.main.temp - 273.15) + 32);
@@ -56,7 +56,7 @@ class App extends Component {
 	if (farenheit) {
 	    displaytemp = <h1>{this.state.farenheit}°F</h1>;
 	    displaydescription = <h1>{this.state.description}</h1>;
-	    displayicon = `http://openweathermap.org/img/w/${icon}.png`;
+	    displayicon = `https://openweathermap.org/img/w/${icon}.png`;
 	    iconimage = <img alt="icon" src={displayicon}/>;
 	}
 	
