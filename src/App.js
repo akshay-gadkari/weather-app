@@ -3,8 +3,11 @@ import './App.css';
 import Titles from './components/titles.js';
 import Form from './components/form.js';
 import Weather from './components/weather.js';
+import styled from "styled-components";
+
 require('dotenv').config();
 const mykey = process.env.REACT_APP_MYKEY;
+
 
 class App extends Component {
     state = {
@@ -18,15 +21,11 @@ class App extends Component {
     getWeather = async (e) => {
 
 	const city = e.target.elements.city.value;
-	//const country = e.target.elements.country.value;
 	const country = 'United States';
 	e.preventDefault();
 	const api_call = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${mykey}`);
 	const response = await api_call.json();
 	console.log(response);
-	//console.log((9/5) * (response.main.temp - 273.15) + 32);
-	//const farenheit = (9/5) * (response.main.temp - 273) + 32;
-	//console.log(farenheit);
 
 	if(city && country){
 	    this.setState({
@@ -36,7 +35,6 @@ class App extends Component {
 		weather: response.weather[0].main,
 		icon: response.weather[0].icon
 	    });
-	    //return <h1>{this.state.farenheit}°F</h1>;
 	}
 	else {
 	    this.setState({

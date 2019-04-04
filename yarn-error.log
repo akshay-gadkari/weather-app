@@ -1,5 +1,5 @@
 Arguments: 
-  /home/mipham/.nvm/versions/node/v8.12.0/bin/node /usr/share/yarn/bin/yarn.js add dotenv
+  /home/mipham/.nvm/versions/node/v8.12.0/bin/node /usr/share/yarn/bin/yarn.js add styled-components
 
 PATH: 
   /home/mipham/Documents/google-cloud-sdk/bin:/home/mipham/.nvm/versions/node/v8.12.0/bin:/home/mipham/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
@@ -14,7 +14,7 @@ Platform:
   linux x64
 
 Trace: 
-  Error: https://registry.yarnpkg.com/dotenv/-/dotenv-7.0.0.tgz: EACCES: permission denied, open '/home/mipham/node_modules/dotenv-7.0.0.tgz'
+  Error: https://registry.yarnpkg.com/memoize-one/-/memoize-one-5.0.2.tgz: EACCES: permission denied, open '/home/mipham/node_modules/memoize-one-5.0.2.tgz'
 
 npm manifest: 
   {
@@ -22,6 +22,7 @@ npm manifest:
     "version": "0.1.0",
     "private": true,
     "dependencies": {
+      "dotenv": "^7.0.0",
       "react": "^16.8.6",
       "react-dom": "^16.8.6",
       "react-scripts": "2.1.8"
@@ -3233,6 +3234,11 @@ Lockfile:
     version "6.0.0"
     resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-6.0.0.tgz#24e37c041741c5f4b25324958ebbc34bca965935"
     integrity sha512-FlWbnhgjtwD+uNLUGHbMykMOYQaTivdHEmYwAKFjn6GKe/CqY0fNae93ZHTd20snh9ZLr8mTzIL9m0APQ1pjQg==
+  
+  dotenv@^7.0.0:
+    version "7.0.0"
+    resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-7.0.0.tgz#a2be3cd52736673206e8a85fb5210eea29628e7c"
+    integrity sha512-M3NhsLbV1i6HuGzBUH8vXrtxOk+tWmzWKDMbAVSUp3Zsjm7ywFeuwrUXhmhQyRK1q5B5GGy7hcXPbj3bnfZg2g==
   
   duplexer@^0.1.1:
     version "0.1.1"
