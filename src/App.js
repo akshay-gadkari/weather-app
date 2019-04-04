@@ -8,6 +8,37 @@ import styled from "styled-components";
 require('dotenv').config();
 const mykey = process.env.REACT_APP_MYKEY;
 
+let Main = styled.div`
+background: #7CDBD5;
+//display: flex;
+//justify-content: center;
+flex-direction: column;
+margin:auto;
+width: 50%;
+`;
+
+let H1 = styled.h1`
+color: white;
+`;
+
+let Img = styled.img`
+max-width: 50;
+max-width: 50px;
+`;
+
+let Degrees = styled.div`
+display: flex;
+flex-flow: row;
+justify-content: center;
+`;
+
+let H2 = styled.h2`
+color: white;
+`;
+
+let H3 = styled.h3`
+color: white;
+`;
 
 class App extends Component {
     state = {
@@ -29,7 +60,8 @@ class App extends Component {
 
 	if(city && country){
 	    this.setState({
-		farenheit: Math.round((9/5) * (response.main.temp - 273) + 32),
+		farenheit: Math.round((9/5) * (response.main.temp - 273.15) + 32),
+		//farenheit: Math.round((9/5) * (response.main.temp) - 459.67),
 		city: response.name,
 		description: response.weather[0].description,
 		weather: response.weather[0].main,
@@ -50,24 +82,27 @@ class App extends Component {
 	let displayicon;
 	let icon = this.state.icon;
 	let iconimage;
+	let descriptionandcity;
 	
 	if (farenheit) {
-	    displaytemp = <h1>{this.state.farenheit}°F</h1>;
-	    displaydescription = <h1>{this.state.description}</h1>;
+	    displaytemp = <H1>{this.state.farenheit}°F</H1>;
+	    displaydescription = <H1>{this.state.description}</H1>;
 	    displayicon = `https://openweathermap.org/img/w/${icon}.png`;
-	    iconimage = <img alt="icon" src={displayicon}/>;
+	    iconimage = <Img alt="icon" src={displayicon}/>;
+	    descriptionandcity = <H3>{displaydescription} in {this.state.city}</H3>;
 	}
 	
 	return (
-	    <div>
+	    <Main>
 	      <Titles />
 	      <Form loadWeather={this.getWeather} />
-	      {displaytemp}
-	      {displaydescription}
-	      {iconimage}
-              <h2>{this.state.city}</h2>
+              <Degrees>
+		{displaytemp}
+		{iconimage}
+	      </Degrees>
+	      {descriptionandcity}
 	      <Weather />
-	    </div>
+	    </Main>
 	);
     }
 }
