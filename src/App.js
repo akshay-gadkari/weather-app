@@ -22,8 +22,9 @@ color: white;
 `;
 
 let Img = styled.img`
-max-width: 50;
+max-height: 50px;
 max-width: 50px;
+margin-top: 15px;
 `;
 
 let Degrees = styled.div`
