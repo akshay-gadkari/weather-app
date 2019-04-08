@@ -8,10 +8,15 @@ justify-content: center;
 `;
 
 let Button = styled.button`
-background: white;
-height: 20px;
-padding: 0 10px;
-color: black;
+border: none;
+margin-left: 5px;
+width: 120px;
+height: 35px;
+overflow: visible;
+color: white;
+background: #985E6D;
+font-size: 15px;
+border-radius: 5px;
 `;
 
 
