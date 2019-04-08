@@ -13,10 +13,15 @@ margin-left: 5px;
 width: 120px;
 height: 35px;
 overflow: visible;
-color: white;
-background: #985E6D;
+color: #2F4F4F;
+background: white;
 font-size: 15px;
 border-radius: 5px;
+border: 2px solid #2F4F4F;
+&:hover {
+background: #2F4F4F;
+color: white;
+}
 `;
 
 
